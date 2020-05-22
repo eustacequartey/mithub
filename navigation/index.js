@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AuthNavigator from './Auth/index';
 import AppNavigator from './AppFront/index';
+import { AppContext } from '~/context/context';
 
 const index = () => {
-  let isLoggedIn = false;
+  const { isLoggedIn } = useContext(AppContext);
 
   return (
     <>

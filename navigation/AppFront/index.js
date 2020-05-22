@@ -1,22 +1,20 @@
-import React from 'react'
-import {createStackNavigator} from "@react-navigation/stack"
-import BottomTabNavigator from "../BottomTabNavigator"
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import BottomTabNavigator from '../BottomTabNav';
 
-
-const {Navigator, Screen} = createStackNavigator()
-
+const { Navigator, Screen } = createStackNavigator();
 
 const index = () => {
-    return (
-        <Navigator
-        screenOptions={{
-            headerShown: false,
-            gestureEnabled: true
-        }}
-        >
-            <Screen name="Root" component={BottomTabNavigator} />
-        </Navigator>
-    )
-}
+  return (
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+        gestureEnabled: true,
+      }}
+    >
+      <Screen name="Root" component={BottomTabNavigator} />
+    </Navigator>
+  );
+};
 
-export default index
+export default index;

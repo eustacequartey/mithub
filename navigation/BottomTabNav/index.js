@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
-import TabBarIcon from '../components/TabBarIcon';
-import { HomePage, SearchPage, NotificationPage } from '../screens/AppFront/';
+import TabBarIcon from '~/components/TabBarIcon';
+import TabBarLabel from '~/components/TabBarLabel';
+import { HomePage, SearchPage, NotificationPage } from '~/screens/AppFront/';
+import Home from '../Home/';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -24,11 +26,12 @@ export default function BottomTabNavigator({ navigation, route }) {
     >
       <BottomTab.Screen
         name="Home"
-        component={HomePage}
-        options={{
+        component={Home}
+        options={({ route }) => ({
           title: 'Home',
+          tabBarLabel: (props) => <TabBarLabel {...props} name={route.name} />,
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
-        }}
+        })}
       />
 
       <BottomTab.Screen
