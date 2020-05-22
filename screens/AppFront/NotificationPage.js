@@ -4,7 +4,6 @@ import { Header } from '~/components/common';
 import { Notification } from '~/components/notifications/';
 
 const NotificationPage = (props) => {
-  console.log('g', props);
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.contentStyle}>

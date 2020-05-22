@@ -1,9 +1,10 @@
-import React from 'react';
-import { Text, View, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, SafeAreaView, ScrollView, RefreshControl } from 'react-native';
 import { Header } from '~/components/common';
 import { MyWork, Favorites, Recent } from '~/components/home/';
 
 const HomePage = (props) => {
+  const [refreshing, setRefreshing] = useState(false);
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.contentStyle}>
@@ -11,7 +12,10 @@ const HomePage = (props) => {
           <Header routeName={props.route.name} navigation={props.navigation} />
         </View>
         <View style={styles.bodyStyle}>
-          <ScrollView showsVerticalScrollIndicator={false}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={_onRefresh} />}
+          >
             <MyWork />
             <Favorites />
             <Recent />
@@ -20,6 +24,12 @@ const HomePage = (props) => {
       </View>
     </SafeAreaView>
   );
+  function _onRefresh() {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 1000);
+  }
 };
 
 export default HomePage;

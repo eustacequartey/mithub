@@ -77,8 +77,6 @@ export default SearchPage;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: 'tomato',
-    // paddingTop: 30,
   },
   contentStyle: {
     flex: 1,
@@ -91,7 +89,6 @@ const styles = StyleSheet.create({
   },
   bodyStyle: {
     flex: 8,
-    // borderTopWidth: 0.5,
     borderColor: '#C6C6C8',
   },
   searchBar: {
